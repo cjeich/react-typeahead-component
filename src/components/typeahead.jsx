@@ -1,10 +1,10 @@
-'use strict';
+import React from "react";
+import { findDOMNode } from "react-dom";
+import Input from './input.jsx';
+import AriaStatus from './aria_status.jsx';
+import getTextDirection from '../utils/get_text_direction';
 
-var React = require('react'),
-    Input = require('./input.jsx'),
-    AriaStatus = require('./aria_status.jsx'),
-    getTextDirection = require('../utils/get_text_direction'),
-    noop = function() {};
+const noop = function() {};
 
 module.exports = React.createClass({
     displayName: 'Typeahead',
@@ -502,7 +502,7 @@ module.exports = React.createClass({
         var _this = this,
             target = event.target;
 
-        if (target !== window && !this.getDOMNode().contains(target)) {
+        if (target !== window && !getDOMNode(this).contains(target)) {
             _this.hideHint();
             _this.hideDropdown();
         }

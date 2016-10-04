@@ -1,6 +1,5 @@
-'use strict';
-
-var React = require('react');
+import React from "react";
+import { findDOMNode } from "react-dom";
 
 module.exports = React.createClass({
     displayName: 'Aria Status',
@@ -41,6 +40,6 @@ module.exports = React.createClass({
     // which confuses screen readers and doesn't cause them to read changes.
     setTextContent: function(textContent) {
         // We could set `innerHTML`, but it's better to avoid it.
-        this.getDOMNode().textContent = textContent || '';
+        findDOMNode(this).textContent = textContent || '';
     }
 });
